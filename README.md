@@ -4,13 +4,13 @@
 # 一）预览图
 
 
-![默认样式](https://user-images.githubusercontent.com/29021369/135749766-db3ece15-19c2-4c76-bb38-8f43d51124d0.JPG)
+- [默认样式](https://user-images.githubusercontent.com/29021369/135749766-db3ece15-19c2-4c76-bb38-8f43d51124d0.JPG)
 
 
-![外悬样式](https://user-images.githubusercontent.com/29021369/135749785-12cc5d39-2450-4be1-a3d9-382e26ebb565.JPG)
+- [外悬样式](https://user-images.githubusercontent.com/29021369/135749785-12cc5d39-2450-4be1-a3d9-382e26ebb565.JPG)
 
 
-![内嵌样式](https://user-images.githubusercontent.com/29021369/135749795-db065cd7-76fd-4ee8-998e-5e2529ca684b.JPG)
+- [内嵌样式](https://user-images.githubusercontent.com/29021369/135749795-db065cd7-76fd-4ee8-998e-5e2529ca684b.JPG)
 
 
 
