@@ -32,9 +32,10 @@
 |    isAutoFocus     |          bool           |        是否开启自动对焦         |    开启     |   关闭   |
 |    isDoubleTap     |          bool           |        是否支持双击手势         |    支持     |  不支持  |
 |       isZoom       |          bool           |        是否支持缩放手势         |    支持     |  不支持  |
-|     isHasTorch     |          bool           | 是否支持光感检测,自动打开闪光灯 |    支持     |  不支持  |
-| brightnessMinValue |         Double          |    自动开启闪光灯亮度对比值     |   默认-1    | 负值变暗 |
-| brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值     |   默认 8    | 负值变亮 |
+|     isHasTorch     |          bool           |  是否支持光感检测,自动打开闪光灯 |    支持     |  不支持  |
+|     soundSource    |          String         |         是否支持提示音        |   有效资源支持,反之不支持   |
+| brightnessMinValue |         Double          |    自动开启闪光灯亮度对比值     |   小于此值开启   |   默认-1  |
+| brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值     |   大于此值关闭   |   默认8   |
 |       preset       | AVCaptureSession.Preset |            扫描质量             | hd1920x1080 |   默认   |
 
 
