@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
                       DESC
 
   spec.author       = { "Charlie" => "13204117850@163.com" }
-  spec.homepage     = 'https://github.com/a51095/HandyScanner'
+  spec.homepage     = "https://github.com/a51095/HandyScanner"
   spec.source       = { :git => "https://github.com/a51095/HandyScanner.git", :tag => "0.0.3" }
 
   spec.requires_arc = true
