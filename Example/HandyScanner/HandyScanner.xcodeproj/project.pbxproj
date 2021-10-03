@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6A7134B2709E8060088E169 /* scan_audio.wav in Resources */ = {isa = PBXBuildFile; fileRef = A6A7134A2709E8060088E169 /* scan_audio.wav */; };
 		A6FEC1AF27095F88008EF3C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEC1AE27095F88008EF3C8 /* AppDelegate.swift */; };
 		A6FEC1B327095F88008EF3C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEC1B227095F88008EF3C8 /* ViewController.swift */; };
 		A6FEC1B827095F89008EF3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FEC1B727095F89008EF3C8 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6A7134A2709E8060088E169 /* scan_audio.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = scan_audio.wav; sourceTree = "<group>"; };
 		A6FEC1AB27095F88008EF3C8 /* HandyScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FEC1AE27095F88008EF3C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FEC1B227095F88008EF3C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				A6FEC1B227095F88008EF3C8 /* ViewController.swift */,
 				A6FEC1C227096090008EF3C8 /* HandyScannerViewController.swift */,
 				A6FEC1B727095F89008EF3C8 /* Assets.xcassets */,
+				A6A7134A2709E8060088E169 /* scan_audio.wav */,
 				A6FEC1B927095F89008EF3C8 /* LaunchScreen.storyboard */,
 				A6FEC1BC27095F89008EF3C8 /* Info.plist */,
 			);
@@ -139,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A7134B2709E8060088E169 /* scan_audio.wav in Resources */,
 				A6FEC1BB27095F89008EF3C8 /* LaunchScreen.storyboard in Resources */,
 				A6FEC1B827095F89008EF3C8 /* Assets.xcassets in Resources */,
 			);
@@ -312,7 +316,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.HandyScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -343,7 +347,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.HandyScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

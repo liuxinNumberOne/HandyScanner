@@ -13,6 +13,7 @@ class HandyScannerViewController: UIViewController {
         super.viewDidLoad()
         defaultBackgroundColor()
         var config = HandyScannerConfig()
+        config.soundSource = "scan_audio"
         config.animationImage = UIImage(named: "scan_animation")
         scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
             guard let self = self else { return }

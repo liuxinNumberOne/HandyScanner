@@ -79,8 +79,8 @@ struct HandyScannerConfig {
     var brightnessMaxValue: Double = 8
     /// 扫描质量(默认hd1920x1080)
     var preset: AVCaptureSession.Preset = .hd1920x1080
-    ///  默认扫描样式
-    var scanStyle = HandyScannerStyle()
+    ///  扫描成功是否播放提示音(默认无声音,需要自己配置)
+    var soundSource: String?
     ///  扫描动画样式图(默认无动画,需要自己配置)
     var animationImage: UIImage? = nil {
         willSet {
@@ -89,6 +89,8 @@ struct HandyScannerConfig {
             scanStyle.anmiationStyle = .LineMove
         }
     }
+    ///  默认扫描样式
+    var scanStyle = HandyScannerStyle()
 }
 
 struct HandyScannerStyle {

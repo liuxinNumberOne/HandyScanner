@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "HandyScanner"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.license      = "MIT"
 
   spec.summary      = "A lightweight scanning component based on system API in Swift5"
@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
                       DESC
 
   spec.author       = { "Charlie" => "13204117850@163.com" }
-  spec.homepage     = "https://github.com/a51095/HandyScanner"
+  spec.homepage     = "https://github.com/a51095/HandyScanner.git"
   spec.source       = { :git => "https://github.com/a51095/HandyScanner.git", :tag => "#{spec.version}" }
 
   spec.requires_arc = true

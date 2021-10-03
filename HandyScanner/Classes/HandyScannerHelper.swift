@@ -5,6 +5,8 @@
 //  Created by well on 2021/10/3.
 //
 
+import AVFoundation
+
 class HandyScannerHelper: NSObject, AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate {
     /// 扫描参数
     private var config: HandyScannerConfig!
@@ -38,6 +40,8 @@ class HandyScannerHelper: NSObject, AVCaptureMetadataOutputObjectsDelegate, AVCa
     private var effectiveScale: CGFloat = 1
     /// 设备最大缩放比例(默认为1)
     private var deviceMaxScale: CGFloat = 1
+    /// 扫描结果提示音播放控制器
+    private var aVPlayer: AVPlayer?
     
     /// 懒加载videoData输出对象
     private lazy var videoDataOutput: AVCaptureVideoDataOutput = {
@@ -49,10 +53,7 @@ class HandyScannerHelper: NSObject, AVCaptureMetadataOutputObjectsDelegate, AVCa
     }()
     
     /// 懒加载photoOutput输出对象
-    private lazy var photoOutput: AVCapturePhotoOutput = {
-        let output = AVCapturePhotoOutput()
-        return output
-    }()
+    private lazy var photoOutput: AVCapturePhotoOutput = { AVCapturePhotoOutput() }()
     
     // MARK: - 反初始化器
     deinit {
@@ -62,7 +63,6 @@ class HandyScannerHelper: NSObject, AVCaptureMetadataOutputObjectsDelegate, AVCa
     
     /// 启动扫描组件
     public func start(supView: UIView, scanConfig: HandyScannerConfig = HandyScannerConfig(), scanRegion: CGRect = .zero, scanType: [AVMetadataObject.ObjectType] = [], result: @escaping ((HandyScannerResult) -> Void)) {
-        
         
         requestAccess { res in
             // 用户授权相机权限后,执行后续操作
@@ -122,6 +122,8 @@ class HandyScannerHelper: NSObject, AVCaptureMetadataOutputObjectsDelegate, AVCa
                 if scanConfig.isHasTorch { self.addVideoDataOutput() }
                 // 开启自动对焦
                 if scanConfig.isAutoFocus { self.addAutoFocus() }
+                // 开启扫码提示音
+                if scanConfig.soundSource != nil { self.addAVPlayer() }
             }
             
             // 延迟0.01秒后,执行扫描(预留光感闪光灯输出源初始化时长)
@@ -184,8 +186,17 @@ class HandyScannerHelper: NSObject, AVCaptureMetadataOutputObjectsDelegate, AVCa
         NotificationCenter.default.addObserver(forName: .AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: .main, using: notificationBlock)
     }
     
+    /// 开启扫码播放音
+    private func addAVPlayer()  {
+        let path = Bundle.main.path(forResource: config.soundSource, ofType: "wav")
+        guard path != nil else { return }
+        
+        let url = URL(fileURLWithPath: path!)
+        aVPlayer = AVPlayer(url: url)
+    }
+    
     /// 开启自动对焦
-    func addAutoFocus() {
+    private func addAutoFocus() {
         try?  self.device?.lockForConfiguration()
         self.device?.focusMode = .continuousAutoFocus
         self.device?.unlockForConfiguration()
@@ -323,6 +334,7 @@ class HandyScannerHelper: NSObject, AVCaptureMetadataOutputObjectsDelegate, AVCa
             if let metadataObj = metadataObjects.last as? AVMetadataMachineReadableCodeObject {
                 if self.metadataObjectTypes.contains(metadataObj.type) {
                     if let res = metadataObj.stringValue {
+                        self.aVPlayer?.play()
                         self.stop()
                         let result = HandyScannerResult(count: 1, results: [res], metadataTypes: [metadataObj.type.rawValue])
                         DispatchQueue.main.async { self.handler?(result) }
@@ -341,6 +353,7 @@ class HandyScannerHelper: NSObject, AVCaptureMetadataOutputObjectsDelegate, AVCa
                             }
                         }
                     }
+                    self.aVPlayer?.play()
                     self.stop()
                     let results = HandyScannerResult(count: self.valueArray.count, results: self.valueArray, metadataTypes: self.typeArray)
                     DispatchQueue.main.async { self.handler?(results) }
