@@ -1,6 +1,8 @@
 # HandyScanner
 # Swift5.0，基于系统API封装的扫描二维码、条形码、等多种条码扫描组件
 
+# 最低版本要求: ≥ iOS 11
+
 # 一）预览图
 
 
@@ -59,7 +61,20 @@
 
 # 五）集成方式
 
-	  pod 'HandyScanner'
+- CocoaPods
+
+	pod 'HandyScanner'
+
+- 手动导入
+
+	[HandyScannerSDK](https://github.com/a51095/HandyScanner/tree/main/lib)
+
+  1) 下载静态资源包,拷贝导入到工程目录;
+  2) 选中 TARGETS -> Build Phases -> Link Binary With Libraries;
+  3) 将下载好的静态包导入;
+  4) 若报错,请尝试使用真机调试；
+
+
 
 
 # 六）使用方法
@@ -87,6 +102,7 @@
 			super.viewDidLoad()
 
 			var config = HandyScannerConfig()
+			config.soundSource = "scan_asudio"
 			config.animationImage = UIImage(named: "scan_animation")
 			scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
 				guard let self = self else { return }
