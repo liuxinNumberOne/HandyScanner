@@ -4,6 +4,7 @@
 //
 //  Created by well on 2021/10/3.
 //
+import HandyScannerSDK
 
 class HandyScannerViewController: UIViewController {
     /// 让控制器持有scanHelper对象,不然会被提前释放
@@ -12,8 +13,9 @@ class HandyScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         defaultBackgroundColor()
-        var config = HandyScannerConfig()
-        config.soundSource = "scan_audio"
+        
+        let config = HandyScannerConfig()
+        config.soundSource = "scan_asudio"
         config.animationImage = UIImage(named: "scan_animation")
         scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
             guard let self = self else { return }

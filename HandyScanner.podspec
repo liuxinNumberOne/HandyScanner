@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "HandyScanner"
-  spec.version      = "0.0.3"
+  spec.version      = "0.0.5"
   spec.license      = "MIT"
 
   spec.summary      = "A lightweight scanning component based on system API in Swift5"
@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
 
   spec.author       = { "Charlie" => "13204117850@163.com" }
   spec.homepage     = "https://github.com/a51095/HandyScanner"
-  spec.source       = { :git => "https://github.com/a51095/HandyScanner.git", :tag => "0.0.3" }
+  spec.source       = { :git => "https://github.com/a51095/HandyScanner.git", :tag => "0.0.5" }
 
   spec.requires_arc = true
 
@@ -19,7 +19,6 @@ Pod::Spec.new do |spec|
   spec.platform      = :ios, "11.0"
   spec.ios.deployment_target = "11.0"
 
-  spec.source_files  = "HandyScanner/Classes/*.swift"
-
+  spec.source_files  = "lib/HandyScannerSDK.framework/**/*"
  
 end

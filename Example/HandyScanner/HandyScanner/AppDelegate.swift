@@ -5,6 +5,8 @@
 //  Created by well on 2021/10/3.
 //
 
+import UIKit
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
