@@ -242,5 +242,28 @@
     @available(iOS 10.0, *)
     func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>)
 ```
-
+- 闪光灯
+```
+    /**
+     flash switch
+     
+     - parameter open: A Boolean value. The default is false
+     */
+    
+    open func torchFlash(open: Bool)
+```
+- 识别照片内容api(默认用于识别照片二维码)
+```
+    /**
+     Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
+     
+     - parameter image:               A valid picture.
+     - parameter ofType:              The type is used to specify the detection intent. (Default: CIDetectorTypeQRCode)
+     - parameter context:             The context argument specifies the CIContext to be used to operate on the image. May be nil. (Default: nil)
+     - parameter options:             The options parameter lets you optinally specify a accuracy / performance tradeoff. Can be nil or an empty dictionary. (Default: [[CIDetectorAccuracy: CIDetectorAccuracyHigh]]).
+     
+     - returns: Returns an array of CIFeature instances in the given image.
+     */
+    open func detector(image: UIImage, ofType: String = CIDetectorTypeQRCode, context: CIContext? = nil, options: [String : Any]? = [CIDetectorAccuracy: CIDetectorAccuracyHigh]) -> Array<CIFeature>?
+```
 
