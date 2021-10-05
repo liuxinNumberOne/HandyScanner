@@ -225,8 +225,11 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerConfig")
 
 SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
 @interface HandyScannerHelper : NSObject <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
+/// MARK: - A gesture of Zoom
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
+/// MARK: - AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
+/// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
