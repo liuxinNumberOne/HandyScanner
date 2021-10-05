@@ -191,5 +191,55 @@
             }
 		}
 
+# 七）API引导
+- 核心方法
+```
+    /**
+     Start scan
+     
+     - parameter supView:     An incoming parent view.
+     - parameter scanConfig:  HandyScannerConfig (Default: HandyScannerConfig()).
+     - parameter scanRegion:  Valid scanning area. The default size is the same as that of the parent view.
+     - parameter scanType:    The supported recognizable scanning types are the same as the system API by default.
+     - parameter scanHandler: Scan result callback
+     */
+    
+    @available(iOS 10.0, *)
+    open func start(supView: UIView, scanConfig: HandyScannerConfig = HandyScannerConfig(), scanRegion: CGRect = .zero, scanType: [AVMetadataObject.ObjectType] = [], scanHandler: ((HandyScannerResult) -> Void)?)
+```
+- 代理方法
+
+```
+    /**
+     Optional
+     
+     - parameter bottomView: A view from the bottom of the scan box to the bottom area of the parent view
+     
+     */
+    
+    @available(iOS 10.0, *)
+    func scannerLimit(_ bottomView: UIView)
+    
+    /**
+     Optional
+     
+     - parameter fullView: A view that is the same size as the parent view
+     
+     */
+    
+    @available(iOS 10.0, *)
+    func scannerUnrestrained(_ fullView: UIView)
+    
+    /**
+     Optional
+     
+     - parameter values: scan result 'stringValue' array
+     - parameter types:  scan result 'objectType' array
+     
+     */
+    
+    @available(iOS 10.0, *)
+    func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>)
+```
 
 
