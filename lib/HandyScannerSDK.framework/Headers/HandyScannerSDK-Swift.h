@@ -379,15 +379,6 @@ SWIFT_CLASS("_TtC15HandyScannerSDK17HandyScannerStyle")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSCoder;
-
-SWIFT_CLASS("_TtC15HandyScannerSDK16HandyScannerView")
-@interface HandyScannerView : UIView
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (void)drawRect:(CGRect)rect;
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
-@end
-
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
 #endif
@@ -772,15 +763,6 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerResult")
 SWIFT_CLASS("_TtC15HandyScannerSDK17HandyScannerStyle")
 @interface HandyScannerStyle : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class NSCoder;
-
-SWIFT_CLASS("_TtC15HandyScannerSDK16HandyScannerView")
-@interface HandyScannerView : UIView
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (void)drawRect:(CGRect)rect;
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
 #if __has_attribute(external_source_symbol)

@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "HandyScanner"
-  spec.version      = "0.1.5"
+  spec.version      = "0.1.6"
   spec.license      = "MIT"
 
   spec.summary      = "A lightweight scanning component based on system API in Swift5"
@@ -20,5 +20,6 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "11.0"
 
   spec.source_files  = "lib/HandyScannerSDK.framework/**/*"
+  spec.public_header_files = "lib/HandyScannerSDK.framework/Headers/HandyScannerSDK-Swift.h"
  
 end
