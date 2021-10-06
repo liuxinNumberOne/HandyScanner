@@ -338,20 +338,15 @@ SWIFT_PROTOCOL("_TtP15HandyScannerSDK26HandyScannerHelperProtocol_")
 - (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=5.0);
 @end
 
-
-/// MARK: - Core class
-SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
-@interface HandyScannerHelper : NSObject <HandyScannerHelperProtocol>
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class UIGestureRecognizer;
 @class AVCaptureMetadataOutput;
 @class AVMetadataObject;
 @class AVCaptureConnection;
 @class AVCaptureOutput;
 
-@interface HandyScannerHelper (SWIFT_EXTENSION(HandyScannerSDK))
+/// MARK: - Core class
+SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
+@interface HandyScannerHelper : NSObject <HandyScannerHelperProtocol>
 /// MARK: - Core method
 - (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(HandyScannerConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(HandyScannerResult * _Nonnull))scanHandler;
 /// MARK: - Flash on / off
@@ -364,6 +359,7 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
 - (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
 /// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -737,20 +733,15 @@ SWIFT_PROTOCOL("_TtP15HandyScannerSDK26HandyScannerHelperProtocol_")
 - (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=5.0);
 @end
 
-
-/// MARK: - Core class
-SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
-@interface HandyScannerHelper : NSObject <HandyScannerHelperProtocol>
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class UIGestureRecognizer;
 @class AVCaptureMetadataOutput;
 @class AVMetadataObject;
 @class AVCaptureConnection;
 @class AVCaptureOutput;
 
-@interface HandyScannerHelper (SWIFT_EXTENSION(HandyScannerSDK))
+/// MARK: - Core class
+SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
+@interface HandyScannerHelper : NSObject <HandyScannerHelperProtocol>
 /// MARK: - Core method
 - (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(HandyScannerConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(HandyScannerResult * _Nonnull))scanHandler;
 /// MARK: - Flash on / off
@@ -763,6 +754,7 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
 - (void)captureOutput:(AVCaptureMetadataOutput * _Nonnull)output didOutputMetadataObjects:(NSArray<AVMetadataObject *> * _Nonnull)metadataObjects fromConnection:(AVCaptureConnection * _Nonnull)connection;
 /// MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
