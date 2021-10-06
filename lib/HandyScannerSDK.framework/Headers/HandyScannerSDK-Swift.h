@@ -299,15 +299,13 @@ SWIFT_PROTOCOL("_TtP15HandyScannerSDK20HandyScannerDelegate_")
 @end
 
 @class HandyScannerResult;
-@class UIGestureRecognizer;
 @class NSNumber;
-@class AVCaptureMetadataOutput;
-@class AVMetadataObject;
-@class AVCaptureConnection;
-@class AVCaptureOutput;
+@class UIImage;
+@class CIContext;
+@class CIFeature;
 
-SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
-@interface HandyScannerHelper : NSObject <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
+SWIFT_PROTOCOL("_TtP15HandyScannerSDK26HandyScannerHelperProtocol_")
+@protocol HandyScannerHelperProtocol <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
 /// Start scan
 /// \param supView An incoming parent view.
 ///
@@ -320,6 +318,41 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
 /// \param scanHandler Scan result callback
 ///
 - (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(HandyScannerConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(HandyScannerResult * _Nonnull))scanHandler SWIFT_AVAILABILITY(ios,introduced=10.0);
+@optional
+/// flash switch
+/// \param open A Boolean value. The default is false
+///
+- (void)torchFlashWithOpen:(BOOL)open SWIFT_AVAILABILITY(ios,introduced=6.0);
+/// Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
+/// \param image A valid picture.
+///
+/// \param ofType The type is used to specify the detection intent. (Default: CIDetectorTypeQRCode)
+///
+/// \param context The context argument specifies the CIContext to be used to operate on the image. May be nil. (Default: nil)
+///
+/// \param options The options parameter lets you optinally specify a accuracy / performance tradeoff. Can be nil or an empty dictionary. (Default: [[CIDetectorAccuracy: CIDetectorAccuracyHigh]]).
+///
+///
+/// returns:
+/// Returns an array of CIFeature instances in the given image.
+- (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=5.0);
+@end
+
+@class UIGestureRecognizer;
+@class AVCaptureMetadataOutput;
+@class AVMetadataObject;
+@class AVCaptureConnection;
+@class AVCaptureOutput;
+
+/// MARK: - Core class
+SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
+@interface HandyScannerHelper : NSObject <HandyScannerHelperProtocol>
+/// MARK: - Core method
+- (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(HandyScannerConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(HandyScannerResult * _Nonnull))scanHandler;
+/// MARK: - Flash on / off
+- (void)torchFlashWithOpen:(BOOL)open;
+/// MARK: - Identify photo content (default identification QR code)
+- (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT;
 /// MARK: - A gesture of Zoom
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 /// MARK: - AVCaptureMetadataOutputObjectsDelegate
@@ -328,6 +361,7 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 /// HandyScannerResult
@@ -651,15 +685,13 @@ SWIFT_PROTOCOL("_TtP15HandyScannerSDK20HandyScannerDelegate_")
 @end
 
 @class HandyScannerResult;
-@class UIGestureRecognizer;
 @class NSNumber;
-@class AVCaptureMetadataOutput;
-@class AVMetadataObject;
-@class AVCaptureConnection;
-@class AVCaptureOutput;
+@class UIImage;
+@class CIContext;
+@class CIFeature;
 
-SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
-@interface HandyScannerHelper : NSObject <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
+SWIFT_PROTOCOL("_TtP15HandyScannerSDK26HandyScannerHelperProtocol_")
+@protocol HandyScannerHelperProtocol <AVCaptureMetadataOutputObjectsDelegate, AVCaptureVideoDataOutputSampleBufferDelegate, UIGestureRecognizerDelegate>
 /// Start scan
 /// \param supView An incoming parent view.
 ///
@@ -672,6 +704,41 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
 /// \param scanHandler Scan result callback
 ///
 - (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(HandyScannerConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(HandyScannerResult * _Nonnull))scanHandler SWIFT_AVAILABILITY(ios,introduced=10.0);
+@optional
+/// flash switch
+/// \param open A Boolean value. The default is false
+///
+- (void)torchFlashWithOpen:(BOOL)open SWIFT_AVAILABILITY(ios,introduced=6.0);
+/// Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
+/// \param image A valid picture.
+///
+/// \param ofType The type is used to specify the detection intent. (Default: CIDetectorTypeQRCode)
+///
+/// \param context The context argument specifies the CIContext to be used to operate on the image. May be nil. (Default: nil)
+///
+/// \param options The options parameter lets you optinally specify a accuracy / performance tradeoff. Can be nil or an empty dictionary. (Default: [[CIDetectorAccuracy: CIDetectorAccuracyHigh]]).
+///
+///
+/// returns:
+/// Returns an array of CIFeature instances in the given image.
+- (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=5.0);
+@end
+
+@class UIGestureRecognizer;
+@class AVCaptureMetadataOutput;
+@class AVMetadataObject;
+@class AVCaptureConnection;
+@class AVCaptureOutput;
+
+/// MARK: - Core class
+SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
+@interface HandyScannerHelper : NSObject <HandyScannerHelperProtocol>
+/// MARK: - Core method
+- (void)startWithSupView:(UIView * _Nonnull)supView scanConfig:(HandyScannerConfig * _Nonnull)scanConfig scanRegion:(CGRect)scanRegion scanType:(NSArray<AVMetadataObjectType> * _Nonnull)scanType scanHandler:(void (^ _Nullable)(HandyScannerResult * _Nonnull))scanHandler;
+/// MARK: - Flash on / off
+- (void)torchFlashWithOpen:(BOOL)open;
+/// MARK: - Identify photo content (default identification QR code)
+- (NSArray<CIFeature *> * _Nullable)detectorWithImage:(UIImage * _Nonnull)image ofType:(NSString * _Nonnull)ofType context:(CIContext * _Nullable)context options:(NSDictionary<NSString *, id> * _Nullable)options SWIFT_WARN_UNUSED_RESULT;
 /// MARK: - A gesture of Zoom
 - (BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer * _Nonnull)otherGestureRecognizer SWIFT_WARN_UNUSED_RESULT;
 /// MARK: - AVCaptureMetadataOutputObjectsDelegate
@@ -680,6 +747,7 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerHelper")
 - (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 /// HandyScannerResult

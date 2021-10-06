@@ -35,6 +35,7 @@
 
 - UI界面可完全自定义;
 - 使用简单,犹如芊芊少女般丝滑、流畅;
+- 严格遵守Swift代码规范,Demo工程0警告;
 - 无内存泄漏问题,及时回收内存资源,合理释放Class;
 - 静态库'HandyScannerSDK.framework',身轻如燕,仅1.3M;
 - 轻量级,只开启基础使用功能,仅占用 '12 ~ 16' 个内存, 启用全部功能, 内存占用在 '120 ~ 130'之间;
@@ -111,10 +112,11 @@
 
 - 基础使用（单一识别结果,默认使用方式）
 
-		/// 让控制器持有scanHelper对象,不然会被提前释放
+		// 让控制器持有scanHelper对象,不然会被提前释放
 		let scanHelper = HandyScannerHelper()
 		override func viewDidLoad() {
 			super.viewDidLoad()
+            // 基础使用功能,仅3行代码,即可获得扫描结果;         
 			scanHelper.start(supView: view) { [weak self] (res) in
 				guard let self = self else { return }
 				print(res)
@@ -124,7 +126,7 @@
 
 - 进阶使用（动画效果,使用属性,调整扫描框样式）
 
-		/// 让控制器持有scanHelper对象,不然会被提前释放
+		// 让控制器持有scanHelper对象,不然会被提前释放
 		let scanHelper = HandyScannerHelper()
 
 		override func viewDidLoad() {
@@ -155,7 +157,7 @@
 
 		class HandyScannerViewController: UIViewController, HandyScannerDelegate {
 
-            /// 让控制器持有scanHelper对象,不然会被提前释放
+            // 让控制器持有scanHelper对象,不然会被提前释放
             let scanHelper = HandyScannerHelper()
 
             override func viewDidLoad() {
