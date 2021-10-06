@@ -1,11 +1,4 @@
 framework module HandyScannerSDK {
-  umbrella header "HandyScannerSDK.h"
-
-  export *
-  module * { export * }
-}
-
-module HandyScannerSDK.Swift {
-    header "HandyScannerSDK-Swift.h"
-    requires objc
+  header "HandyScannerSDK-Swift.h"
+  requires objc
 }
