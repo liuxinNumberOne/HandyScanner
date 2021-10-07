@@ -1,12 +1,12 @@
 # HandyScanner
-# Swift5.0，基于系统API封装的扫描二维码、条形码、等多种条码扫描组件
+### Swift5.0，基于系统API封装的扫描二维码、条形码、等多种条码扫描组件
 
 
 # 注意事项:
+### ⚠️⚠️⚠️真机环境运行⚠️⚠️⚠️
 
-
-# -- platform: ≥ iOS 10
-# -- language: Object-C 、Swift
+### -- platform: ≥ iOS 10
+### -- language: Object-C 、Swift
 
 
 
@@ -89,16 +89,16 @@
 
 - CocoaPods
 
-		pod 'HandyScanner'
+		  pod 'HandyScanner', :configurations => ['Release']
 
 - 手动导入
 
 	[HandyScannerSDK](https://github.com/a51095/HandyScanner/tree/main/lib)
 
 
-1) 下载静态资源包,拷贝导入到工程目录;
-2) 选中 TARGETS -> Build Phases -> Link Binary With Libraries;
-3) Link 下载好的静态包;
+1) 下载静态资源包,*拷贝* 导入到工程目录;
+2) 选中 TARGETS -> Build Settings -> Framework Search Paths;
+3) 配置添加进来的静态库路径;
 4) 若报错,请尝试使用真机调试；
 
 
