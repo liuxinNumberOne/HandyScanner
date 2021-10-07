@@ -10,8 +10,8 @@ Pod::Spec.new do |spec|
                       DESC
 
   spec.author       = { 'Charlie' => '13204117850@163.com' }
-  spec.homepage     = 'https://github.com/Charlie/HandyScanner'
-  spec.source       = { :git => 'https://github.com/Charlie/HandyScanner.git', :tag => spec.version }
+  spec.homepage     = 'https://github.com/a51095/HandyScanner'
+  spec.source       = { :git => 'https://github.com/a51095/HandyScanner.git', :tag => spec.version }
 
   spec.swift_version = '5.0'
   spec.platform      = :ios, '11.0'
