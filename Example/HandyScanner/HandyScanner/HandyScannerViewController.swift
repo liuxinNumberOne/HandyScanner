@@ -4,8 +4,9 @@
 //
 //  Created by well on 2021/10/3.
 //
-import HandyScannerSDK
 
+import UIKit
+import HandyScannerSDK
 class HandyScannerViewController: UIViewController {
     /// 让控制器持有scanHelper对象,不然会被提前释放
     let scanHelper = HandyScannerHelper()
