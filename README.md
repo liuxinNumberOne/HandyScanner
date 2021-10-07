@@ -5,8 +5,8 @@
 # 注意事项:
 ### ⚠️⚠️⚠️真机环境运行⚠️⚠️⚠️
 
-### -- platform: ≥ iOS 10
-### -- language: Object-C 、Swift
+###### 📣  platform: ≥ iOS 10
+###### 📣  language: Object-C 、Swift
 
 
 
@@ -33,12 +33,12 @@
 
 # 二）组件特性
 
-- UI界面可完全自定义;
-- 使用简单,犹如芊芊少女般丝滑、流畅;
-- 严格遵守Swift代码规范,Demo工程0警告;
-- 无内存泄漏问题,及时回收内存资源,合理释放Class;
-- 静态库'HandyScannerSDK.framework',身轻如燕,仅1.3M;
-- 轻量级,只开启基础使用功能,仅占用 '12 ~ 16' 个内存, 启用全部功能, 内存占用在 '120 ~ 130'之间;
+###### 💕  UI界面可完全自定义;
+###### 🎉  使用简单,犹如芊芊少女般丝滑、流畅;
+###### 🍀  严格遵守Swift代码规范,Demo工程0警告;
+###### 💥  无内存泄漏问题,及时回收内存资源,合理释放Class;
+###### 🏄  静态库'HandyScannerSDK.framework',身轻如燕,仅1.3M;
+###### 🏆  轻量级,只开启基础使用功能,仅占用 '12 ~ 16' 个内存, 启用全部功能, 内存占用在 '120 ~ 130'之间;
 
 
 
@@ -87,19 +87,19 @@
 
 # 五）集成方式
 
-- CocoaPods
+### - CocoaPods
 
 		  pod 'HandyScanner', :configurations => ['Release']
 
-- 手动导入
+### - 手动导入
 
 	[HandyScannerSDK](https://github.com/a51095/HandyScanner/tree/main/lib)
 
 
-1) 下载静态资源包,*拷贝* 导入到工程目录;
-2) 选中 TARGETS -> Build Settings -> Framework Search Paths;
-3) 配置添加进来的静态库路径;
-4) 若报错,请尝试使用真机调试；
+###### 1) 下载静态资源包,*拷贝* 导入到工程目录;
+###### 2) 选中 TARGETS -> Build Settings -> Framework Search Paths;
+###### 3) 配置添加进来的静态库路径;
+###### 4) 若报错,请尝试使用真机调试；
 
 
 
@@ -110,7 +110,7 @@
 	import HandyScannerSDK
 
 
-- 基础使用（单一识别结果,默认使用方式）
+### - 基础使用（单一识别结果,默认使用方式）
 
 		// 让控制器持有scanHelper对象,不然会被提前释放
 		let scanHelper = HandyScannerHelper()
@@ -124,7 +124,7 @@
 			}
 		}
 
-- 进阶使用（动画效果,使用属性,调整扫描框样式）
+### - 进阶使用（动画效果,使用属性,调整扫描框样式）
 
 		// 让控制器持有scanHelper对象,不然会被提前释放
 		let scanHelper = HandyScannerHelper()
@@ -153,7 +153,7 @@
 			}
 		}
 
-- 高阶使用(自定义UI,及多个扫描结果)
+### - 高阶使用(自定义UI,及多个扫描结果)
 
 		class HandyScannerViewController: UIViewController, HandyScannerDelegate {
 
@@ -196,7 +196,7 @@
 		}
 
 # 七）API引导
-- 核心方法
+### - 核心方法
 ```
     /**
      Start scan
@@ -209,9 +209,9 @@
      */
     
     @available(iOS 10.0, *)
-    open func start(supView: UIView, scanConfig: HandyScannerConfig = HandyScannerConfig(), scanRegion: CGRect = .zero, scanType: [AVMetadataObject.ObjectType] = [], scanHandler: ((HandyScannerResult) -> Void)?)
+    public func start(supView: UIView, scanConfig: HandyScannerConfig = HandyScannerConfig(), scanRegion: CGRect = .zero, scanType: [AVMetadataObject.ObjectType] = [], scanHandler: ((HandyScannerResult) -> Void)?)
 ```
-- 代理方法
+### - 代理方法
 
 ```
     /**
@@ -245,7 +245,7 @@
     @available(iOS 10.0, *)
     func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>)
 ```
-- 闪光灯
+### - 闪光灯
 ```
     /**
      flash switch
@@ -253,9 +253,9 @@
      - parameter open: A Boolean value. The default is false
      */
     
-    open func torchFlash(open: Bool)
+    public func torchFlash(open: Bool)
 ```
-- 识别照片内容api(默认用于识别照片二维码)
+### - 识别照片内容api(默认用于识别照片二维码)
 ```
     /**
      Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
@@ -267,6 +267,6 @@
      
      - returns: Returns an array of CIFeature instances in the given image.
      */
-    open func detector(image: UIImage, ofType: String = CIDetectorTypeQRCode, context: CIContext? = nil, options: [String : Any]? = [CIDetectorAccuracy: CIDetectorAccuracyHigh]) -> Array<CIFeature>?
+    public func detector(image: UIImage, ofType: String = CIDetectorTypeQRCode, context: CIContext? = nil, options: [String : Any]? = [CIDetectorAccuracy: CIDetectorAccuracyHigh]) -> Array<CIFeature>?
 ```
 
