@@ -299,8 +299,7 @@
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/HandyScanner",
-					"\"$(SRCROOT)/../../lib\"",
+					"$(SRCROOT)/../../lib",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandyScanner/Info.plist;
@@ -316,7 +315,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.3;
+				MARKETING_VERSION = 0.2.5;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.HandyScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -341,8 +340,7 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/HandyScanner",
-					"\"$(SRCROOT)/../../lib\"",
+					"$(SRCROOT)/../../lib",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandyScanner/Info.plist;
@@ -358,7 +356,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.3;
+				MARKETING_VERSION = 0.2.5;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.HandyScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
