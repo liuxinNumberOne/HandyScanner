@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A69B5052270FE5C900EF8E31 /* HandyScannerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A678846B270AD2CB0039562D /* HandyScannerSDK.framework */; };
 		A6A7134B2709E8060088E169 /* scan_audio.wav in Resources */ = {isa = PBXBuildFile; fileRef = A6A7134A2709E8060088E169 /* scan_audio.wav */; };
+		A6C178F82711F7B500A83316 /* HandyScannerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C178F72711F7B500A83316 /* HandyScannerSDK.framework */; };
 		A6FEC1AF27095F88008EF3C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEC1AE27095F88008EF3C8 /* AppDelegate.swift */; };
 		A6FEC1B327095F88008EF3C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEC1B227095F88008EF3C8 /* ViewController.swift */; };
 		A6FEC1B827095F89008EF3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FEC1B727095F89008EF3C8 /* Assets.xcassets */; };
@@ -17,8 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A678846B270AD2CB0039562D /* HandyScannerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HandyScannerSDK.framework; path = ../../lib/HandyScannerSDK.framework; sourceTree = "<group>"; };
 		A6A7134A2709E8060088E169 /* scan_audio.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = scan_audio.wav; sourceTree = "<group>"; };
+		A6C178F72711F7B500A83316 /* HandyScannerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HandyScannerSDK.framework; path = ../../HandyScannerSDK.framework; sourceTree = "<group>"; };
 		A6FEC1AB27095F88008EF3C8 /* HandyScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FEC1AE27095F88008EF3C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FEC1B227095F88008EF3C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,17 +33,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A69B5052270FE5C900EF8E31 /* HandyScannerSDK.framework in Frameworks */,
+				A6C178F82711F7B500A83316 /* HandyScannerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A678846A270AD2CB0039562D /* Frameworks */ = {
+		A6C178F62711F7B400A83316 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A678846B270AD2CB0039562D /* HandyScannerSDK.framework */,
+				A6C178F72711F7B500A83316 /* HandyScannerSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -53,7 +53,7 @@
 			children = (
 				A6FEC1AD27095F88008EF3C8 /* HandyScanner */,
 				A6FEC1AC27095F88008EF3C8 /* Products */,
-				A678846A270AD2CB0039562D /* Frameworks */,
+				A6C178F62711F7B400A83316 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,10 +297,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5562HFJV8D;
 				EXCLUDED_ARCHS = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../../lib",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandyScanner/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "授权使用系统相机";
@@ -315,7 +312,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.5;
+				MARKETING_VERSION = 0.2.6;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.HandyScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -340,7 +337,7 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../../lib",
+					"$(SRCROOT)/../../",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandyScanner/Info.plist;
@@ -356,7 +353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.5;
+				MARKETING_VERSION = 0.2.6;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.HandyScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
