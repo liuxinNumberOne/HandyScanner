@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = 'HandyScanner'
-  spec.version      = '0.2.6'
+  spec.version      = '0.2.7'
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
 
   spec.summary      = 'A lightweight scanning component based on system API in Swift5'
