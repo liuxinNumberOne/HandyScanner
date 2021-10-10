@@ -89,11 +89,11 @@
 
 ### - CocoaPods
 
-		  pod 'HandyScanner', :configurations => ['Release']
+	pod 'HandyScanner', :configurations => ['Release']
 
 ### - 手动导入
 
-	[HandyScannerSDK](https://github.com/a51095/HandyScanner/tree/main/lib)
+[HandyScannerSDK](https://github.com/a51095/HandyScanner/tree/main/lib)
 
 
 ###### 1) 下载静态资源包,*拷贝* 导入到工程目录;
