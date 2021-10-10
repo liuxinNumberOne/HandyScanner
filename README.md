@@ -106,8 +106,10 @@
 
 # 六）使用方法
 
-
+###  Swift 工程
 	import HandyScannerSDK
+###  Object-C 工程
+	#import <HandyScannerSDK/HandyScannerSDK-Swift.h>
 
 
 ### - 基础使用（单一识别结果,默认使用方式）
