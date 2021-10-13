@@ -89,7 +89,7 @@
 
 ### - CocoaPods
 
-	pod 'HandyScanner', :configurations => ['Release']
+	pod 'HandyScanner'
 
 ### - 手动导入
 
