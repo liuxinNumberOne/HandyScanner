@@ -97,7 +97,7 @@
 
 
 ###### 1) 下载静态资源包,*拷贝* 导入到工程目录;
-###### 2) 选中 TARGETS -> Build Settings -> Framework Search Paths;
+###### 2) 选中 `TARGETS` -> `Build Settings` -> `Framework Search Paths`;
 ###### 3) 配置添加进来的静态库路径;
 ###### 4) 若报错,请尝试使用真机调试；
 
