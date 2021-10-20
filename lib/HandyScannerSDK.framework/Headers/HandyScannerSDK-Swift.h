@@ -277,6 +277,7 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerConfig")
 @end
 
 @class UIView;
+@class NSNumber;
 @class NSString;
 
 SWIFT_PROTOCOL("_TtP15HandyScannerSDK20HandyScannerDelegate_")
@@ -291,6 +292,10 @@ SWIFT_PROTOCOL("_TtP15HandyScannerSDK20HandyScannerDelegate_")
 ///
 - (void)scannerUnrestrained:(UIView * _Nonnull)fullView SWIFT_AVAILABILITY(ios,introduced=10.0);
 /// Optional
+/// \param brightnessValue A brightness value
+///
+- (void)scannerCaptureOutput:(double)brightnessValue SWIFT_AVAILABILITY(ios,introduced=10.0);
+/// Optional
 /// \param values scan result ‘stringValue’ array
 ///
 /// \param types scan result ‘objectType’ array
@@ -299,7 +304,6 @@ SWIFT_PROTOCOL("_TtP15HandyScannerSDK20HandyScannerDelegate_")
 @end
 
 @class HandyScannerResult;
-@class NSNumber;
 @class UIImage;
 @class CIContext;
 @class CIFeature;
@@ -663,6 +667,7 @@ SWIFT_CLASS("_TtC15HandyScannerSDK18HandyScannerConfig")
 @end
 
 @class UIView;
+@class NSNumber;
 @class NSString;
 
 SWIFT_PROTOCOL("_TtP15HandyScannerSDK20HandyScannerDelegate_")
@@ -677,6 +682,10 @@ SWIFT_PROTOCOL("_TtP15HandyScannerSDK20HandyScannerDelegate_")
 ///
 - (void)scannerUnrestrained:(UIView * _Nonnull)fullView SWIFT_AVAILABILITY(ios,introduced=10.0);
 /// Optional
+/// \param brightnessValue A brightness value
+///
+- (void)scannerCaptureOutput:(double)brightnessValue SWIFT_AVAILABILITY(ios,introduced=10.0);
+/// Optional
 /// \param values scan result ‘stringValue’ array
 ///
 /// \param types scan result ‘objectType’ array
@@ -685,7 +694,6 @@ SWIFT_PROTOCOL("_TtP15HandyScannerSDK20HandyScannerDelegate_")
 @end
 
 @class HandyScannerResult;
-@class NSNumber;
 @class UIImage;
 @class CIContext;
 @class CIFeature;

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6200568271FBB1E00DB8073 /* HandyScannerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6200567271FBB1E00DB8073 /* HandyScannerSDK.framework */; };
 		A6A7134B2709E8060088E169 /* scan_audio.wav in Resources */ = {isa = PBXBuildFile; fileRef = A6A7134A2709E8060088E169 /* scan_audio.wav */; };
-		A6C178F82711F7B500A83316 /* HandyScannerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C178F72711F7B500A83316 /* HandyScannerSDK.framework */; };
 		A6FEC1AF27095F88008EF3C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEC1AE27095F88008EF3C8 /* AppDelegate.swift */; };
 		A6FEC1B327095F88008EF3C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEC1B227095F88008EF3C8 /* ViewController.swift */; };
 		A6FEC1B827095F89008EF3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6FEC1B727095F89008EF3C8 /* Assets.xcassets */; };
@@ -17,8 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6200567271FBB1E00DB8073 /* HandyScannerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HandyScannerSDK.framework; path = ../../lib/HandyScannerSDK.framework; sourceTree = "<group>"; };
 		A6A7134A2709E8060088E169 /* scan_audio.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = scan_audio.wav; sourceTree = "<group>"; };
-		A6C178F72711F7B500A83316 /* HandyScannerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HandyScannerSDK.framework; path = ../../HandyScannerSDK.framework; sourceTree = "<group>"; };
 		A6FEC1AB27095F88008EF3C8 /* HandyScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FEC1AE27095F88008EF3C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FEC1B227095F88008EF3C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6C178F82711F7B500A83316 /* HandyScannerSDK.framework in Frameworks */,
+				A6200568271FBB1E00DB8073 /* HandyScannerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,7 +43,7 @@
 		A6C178F62711F7B400A83316 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A6C178F72711F7B500A83316 /* HandyScannerSDK.framework */,
+				A6200567271FBB1E00DB8073 /* HandyScannerSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,11 +293,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5562HFJV8D;
 				EXCLUDED_ARCHS = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../lib";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandyScanner/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "授权使用系统相机";
@@ -312,10 +313,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.7;
+				MARKETING_VERSION = 0.2.8;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.HandyScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -330,12 +332,13 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5562HFJV8D;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../lib";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandyScanner/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "授权使用系统相机";
@@ -350,10 +353,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.7;
+				MARKETING_VERSION = 0.2.8;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.well.HandyScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
