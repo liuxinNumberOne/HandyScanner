@@ -176,19 +176,24 @@
 
             // MARK: - 自定义底部视图(返回一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
             func scannerLimit(_ bottomView: UIView) {
-              bottomView.backgroundColor = .orange
+              	bottomView.backgroundColor = .orange
             }
 
             // MARK: - 完全自定义UI视图(返回一个自定义view,frame大小同父视图bounds)
             func scannerUnrestrained(_ fullView: UIView) {
-              let v = UIView()
-              v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-              fullView.addSubview(v)
+	      	let v = UIView()
+	      	v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+	      	fullView.addSubview(v)
             }
-
+	    
+            // MARK: - 返回一个亮度值
+            func scannerCaptureOutput(_ brightnessValue: Double) {
+		print(brightnessValue) 
+            }
+	    
             // MARK: - 多结果返回集合,values: 字符串结果数组, types: 扫描类型结果数组(⚠️⚠️⚠️仅多个结果才会执行此代理方法)
             func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>) {
-              print(values) 
+              	print(values) 
             }
 
             // MARK: 反初始化器
@@ -199,7 +204,7 @@
 
 # 七）API引导
 ### - 核心方法
-```
+``` swift
     /**
      Start scan
      
@@ -215,7 +220,7 @@
 ```
 ### - 代理方法
 
-```
+``` swift
     /**
      Optional
      
@@ -224,7 +229,7 @@
      */
     
     @available(iOS 10.0, *)
-    func scannerLimit(_ bottomView: UIView)
+    optional func scannerLimit(_ bottomView: UIView)
     
     /**
      Optional
@@ -234,7 +239,17 @@
      */
     
     @available(iOS 10.0, *)
-    func scannerUnrestrained(_ fullView: UIView)
+    optional func scannerUnrestrained(_ fullView: UIView)
+    
+     /**
+     Optional
+     
+     - parameter brightnessValue: A brightness value
+     
+     */
+    
+    @objc @available(iOS 10.0, *)
+    optional func scannerCaptureOutput(_ brightnessValue: Double)
     
     /**
      Optional
@@ -245,10 +260,10 @@
      */
     
     @available(iOS 10.0, *)
-    func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>)
+    optional func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>)
 ```
 ### - 闪光灯
-```
+``` swift
     /**
      flash switch
      
@@ -258,7 +273,7 @@
     public func torchFlash(open: Bool)
 ```
 ### - 识别照片内容api(默认用于识别照片二维码)
-```
+``` swift
     /**
      Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
      
