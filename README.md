@@ -44,24 +44,22 @@
 
 # 三）功能列表
 
-
-
-|        key        |          type           |               des               |    true     |  false   |
-| :----------------: | :---------------------: | :-----------------------------: | :---------: | :------: |
-|      isSingle      |          bool           |       是否仅识别单一结果        |  单一结果   | 多个结果 |
-|      isSquare      |          bool           |       是否展示正方形边框        |    展示     |  不展示  |
-|    isAutoFocus     |          bool           |        是否开启自动对焦         |    开启     |   关闭   |
-|    isDoubleTap     |          bool           |        是否支持双击手势         |    支持     |  不支持  |
-|       isZoom       |          bool           |        是否支持缩放手势         |    支持     |  不支持  |
-|     isHasTorch     |          bool           |  是否支持光感检测,自动打开闪光灯 |    支持     |  不支持  |
-|       isLimit      |          bool           |        是否自定义底部UI         |    自定义   |  默认UI  |
-|   isUnrestrained   |          bool           |        是否完全自定义UI         |    自定义   |  默认UI  |
-|   isDebugDes       |          bool           |        是否打印调试信息         |    打印     |  不打印  |
-|     soundSource    |          String         |         是否支持提示音        |   有效资源支持   |  默认不支持 |
-|  animationImage    |         UIImage         |         扫描动画样式图        |   有效资源显示   |  默认不显示        |
-| brightnessMinValue |         Double          |    自动开启闪光灯亮度对比值     |   小于此值开启   |   默认-1  |
-| brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值     |   大于此值关闭   |   默认7   |
-|       preset       | AVCaptureSession.Preset |            扫描质量             | hd1920x1080 |   默认   |
+|        key         |          type           |                   des                    |     true     |   false    |
+| :----------------: | :---------------------: | :--------------------------------------: | :----------: | :--------: |
+|      isSingle      |          bool           |       是否仅识别单一结果,默认true        |   单一结果   |  多个结果  |
+|      isSquare      |          bool           |       是否展示正方形边框,默认true        |     展示     |   不展示   |
+|    isAutoFocus     |          bool           |        是否开启自动对焦,默认true         |     开启     |    关闭    |
+|    isDoubleTap     |          bool           |        是否支持双击手势,默认true         |     支持     |   不支持   |
+|       isZoom       |          bool           |        是否支持缩放手势,默认true         |     支持     |   不支持   |
+|     isHasTorch     |          bool           |  是否支持光感检测,自动打开闪光灯,默认true  |     支持     |   不支持   |
+|      isLimit       |          bool           |        是否自定义底部UI,默认false        |    自定义    |   默认UI   |
+|   isUnrestrained   |          bool           |        是否完全自定义UI,默认false        |    自定义    |   默认UI   |
+|     isDebugDes     |          bool           |        是否打印调试信息,默认true         |     打印     |   不打印   |
+|    soundSource     |         String          |         是否支持提示音,默认false         | 有效资源支持 | 默认不支持 |
+|   animationImage   |         UIImage         |         扫描动画样式图,默认false         | 有效资源显示 | 默认不显示 |
+| brightnessMinValue |         Double          |    自动开启闪光灯亮度对比值,默认true     | 小于此值开启 |   默认-1   |
+| brightnessMaxValue |         Double          |    自动关闭闪光灯亮度对比值,默认true     | 大于此值关闭 |   默认7    |
+|       preset       | AVCaptureSession.Preset |                 扫描质量             | hd1920x1080  |    默认    |
 
 
 
@@ -114,176 +112,189 @@
 
 ### - 基础使用（单一识别结果,默认使用方式）
 
-		// 让控制器持有scanHelper对象,不然会被提前释放
-		let scanHelper = HandyScannerHelper()
-		override func viewDidLoad() {
-			super.viewDidLoad()
-            // 基础使用功能,仅3行代码,即可获得扫描结果;         
-			scanHelper.start(supView: view) { [weak self] (res) in
-				guard let self = self else { return }
-				print(res)
-				self.navigationController?.popViewController(animated: true)
-			}
-		}
+``` swift
+/// 让控制器持有scanHelper对象,不然会被提前释放
+let scanHelper = HandyScannerHelper()
+override func viewDidLoad() {
+	super.viewDidLoad()
+	scanHelper.start(supView: view) { [weak self] (res) in
+		guard let self = self else { return }
+		print(res)
+		self.navigationController?.popViewController(animated: true)
+	}
+}
+```
 
 ### - 进阶使用（动画效果,使用属性,调整扫描框样式）
 
-		// 让控制器持有scanHelper对象,不然会被提前释放
-		let scanHelper = HandyScannerHelper()
+``` swift
+/// 让控制器持有scanHelper对象,不然会被提前释放
+let scanHelper = HandyScannerHelper()
 
-		override func viewDidLoad() {
-			super.viewDidLoad()
+override func viewDidLoad() {
+	super.viewDidLoad()
 
-			var config = HandyScannerConfig()
-			config.soundSource = "scan_asudio"
-			config.animationImage = UIImage(named: "scan_animation")
-			config.isAutoFocus = false
-			config.isHasTorch = false
-			config.isZoom = false
-			config.isSingle = false
+	var config = HandyScannerConfig()
+	config.soundSource = "scan_asudio"
+	config.animationImage = UIImage(named: "scan_animation")
+	config.isAutoFocus = false
+	config.isHasTorch = false
+	config.isZoom = false
+	config.isSingle = false
 
-			config.scanStyle.lineColor = .purple
-			config.scanStyle.anmiationStyle = .LineCenter
-			config.scanStyle.angleStyle = .OutLine
+	config.scanStyle.lineColor = .purple
+	config.scanStyle.anmiationStyle = .LineCenter
+	config.scanStyle.angleStyle = .OutLine
 
-			// and so on ...
+	// and so on ...
 
-			scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
-				guard let self = self else { return }
-				print(res)
-				self.navigationController?.popViewController(animated: true)
-			}
-		}
+	scanHelper.start(supView: view, scanConfig: config) { [weak self] (res) in
+		guard let self = self else { return }
+		print(res)
+		self.navigationController?.popViewController(animated: true)
+	}
+}
+```
 
 ### - 高阶使用(自定义UI,及多个扫描结果)
 
-		class HandyScannerViewController: UIViewController, HandyScannerDelegate {
+``` swift
+class HandyScannerViewController: UIViewController, HandyScannerDelegate {
 
-            // 让控制器持有scanHelper对象,不然会被提前释放
-            let scanHelper = HandyScannerHelper()
+	/// 让控制器持有scanHelper对象,不然会被提前释放
+	let scanHelper = HandyScannerHelper()
 
-            override func viewDidLoad() {
-              super.viewDidLoad()
-              defaultBackgroundColor()
+	override func viewDidLoad() {
+	  super.viewDidLoad()
+	  defaultBackgroundColor()
 
-              let config = HandyScannerConfig()
-              config.isUnrestrained = true
+	  let config = HandyScannerConfig()
+	  config.isUnrestrained = true
 
-              // ⚠️⚠️⚠️scanHandler回调,仅返回单一识别结果
-              scanHelper.start(supView: view, scanConfig: config, scanHandler: nil)
+	  // ⚠️⚠️⚠️scanHandler回调,仅返回单一识别结果
+	  scanHelper.delegate = self
+	  scanHelper.start(supView: view, scanConfig: config)
 
-            }
+	}
 
-            // MARK: - 自定义底部视图(返回一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
-            func scannerLimit(_ bottomView: UIView) {
-              	bottomView.backgroundColor = .orange
-            }
+	// MARK: - 自定义底部视图(返回一个自定义view,从扫描框底部开始计算到父视图底部边缘区域视图)
+	func scannerLimit(_ bottomView: UIView) {
+		bottomView.backgroundColor = .orange
+	}
 
-            // MARK: - 完全自定义UI视图(返回一个自定义view,frame大小同父视图bounds)
-            func scannerUnrestrained(_ fullView: UIView) {
-	      	let v = UIView()
-	      	v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-	      	fullView.addSubview(v)
-            }
-	    
-            // MARK: - 返回一个亮度值
-            func scannerCaptureOutput(_ brightnessValue: Double) {
+	// MARK: - 完全自定义UI视图(返回一个自定义view,frame大小同父视图bounds)
+	func scannerUnrestrained(_ fullView: UIView) {
+		let v = UIView()
+		v.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+		fullView.addSubview(v)
+	}
+
+	// MARK: - 返回一个亮度值
+	func scannerCaptureOutput(_ brightnessValue: Double) {
 		print(brightnessValue) 
-            }
-	    
-            // MARK: - 多结果返回集合,values: 字符串结果数组, types: 扫描类型结果数组(⚠️⚠️⚠️仅多个结果才会执行此代理方法)
-            func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>) {
-              	print(values) 
-            }
+	}
 
-            // MARK: 反初始化器
-            deinit {
-              print("HandyScannerViewController deinit~")
-            }
-		}
+	// MARK: - 多结果返回集合,values: 字符串结果数组, types: 扫描类型结果数组(⚠️⚠️⚠️仅多个结果才会执行此代理方法)
+	func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>) {
+		print(values) 
+	}
+
+	// MARK: 反初始化器
+	deinit {
+		print("HandyScannerViewController deinit~")
+	}
+}
+```
+		
 
 # 七）API引导
 ### - 核心方法
+
 ``` swift
-    /**
-     Start scan
-     
-     - parameter supView:     An incoming parent view.
-     - parameter scanConfig:  HandyScannerConfig (Default: HandyScannerConfig()).
-     - parameter scanRegion:  Valid scanning area. The default size is the same as that of the parent view.
-     - parameter scanType:    The supported recognizable scanning types are the same as the system API by default.
-     - parameter scanHandler: Scan result callback
-     */
-    
-    @available(iOS 10.0, *)
-    public func start(supView: UIView, scanConfig: HandyScannerConfig = HandyScannerConfig(), scanRegion: CGRect = .zero, scanType: [AVMetadataObject.ObjectType] = [], scanHandler: ((HandyScannerResult) -> Void)?)
+/**
+ Start scan
+
+ - parameter supView:     An incoming parent view.
+ - parameter scanConfig:  HandyScannerConfig (Default: HandyScannerConfig()).
+ - parameter scanRegion:  Valid scanning area. The default size is the same as that of the parent view.
+ - parameter scanType:    The supported recognizable scanning types are the same as the system API by default.
+ - parameter scanHandler: Scan result callback
+ */
+
+@available(iOS 10.0, *)
+public func start(supView: UIView, scanConfig: HandyScannerConfig = HandyScannerConfig(), scanRegion: CGRect = .zero, scanType: [AVMetadataObject.ObjectType] = [], scanHandler: ((HandyScannerResult) -> Void)? = nil )
 ```
+
 ### - 代理方法
 
 ``` swift
-    /**
-     Optional
-     
-     - parameter bottomView: A view from the bottom of the scan box to the bottom area of the parent view
-     
-     */
-    
-    @available(iOS 10.0, *)
-    optional func scannerLimit(_ bottomView: UIView)
-    
-    /**
-     Optional
-     
-     - parameter fullView: A view that is the same size as the parent view
-     
-     */
-    
-    @available(iOS 10.0, *)
-    optional func scannerUnrestrained(_ fullView: UIView)
-    
-     /**
-     Optional
-     
-     - parameter brightnessValue: A brightness value
-     
-     */
-    
-    @objc @available(iOS 10.0, *)
-    optional func scannerCaptureOutput(_ brightnessValue: Double)
-    
-    /**
-     Optional
-     
-     - parameter values: scan result 'stringValue' array
-     - parameter types:  scan result 'objectType' array
-     
-     */
-    
-    @available(iOS 10.0, *)
-    optional func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>)
+/**
+ Optional
+
+ - parameter bottomView: A view from the bottom of the scan box to the bottom area of the parent view
+
+ */
+
+@available(iOS 10.0, *)
+optional func scannerLimit(_ bottomView: UIView)
+
+/**
+ Optional
+
+ - parameter fullView: A view that is the same size as the parent view
+
+ */
+
+@available(iOS 10.0, *)
+optional func scannerUnrestrained(_ fullView: UIView)
+
+ /**
+ Optional
+
+ - parameter brightnessValue: A brightness value
+
+ */
+
+@objc @available(iOS 10.0, *)
+optional func scannerCaptureOutput(_ brightnessValue: Double)
+
+/**
+ Optional
+
+ - parameter values: scan result 'stringValue' array
+ - parameter types:  scan result 'objectType' array
+
+ */
+
+@available(iOS 10.0, *)
+optional func scannerMetadataOutput(of values: Array<String>, by types: Array<AVMetadataObject.ObjectType>)
 ```
+
 ### - 闪光灯
+
 ``` swift
-    /**
-     flash switch
-     
-     - parameter open: A Boolean value. The default is false
-     */
-    
-    public func torchFlash(open: Bool)
+/**
+ flash switch
+
+ - parameter open: A Boolean value. The default is false
+ */
+
+public func torchFlash(open: Bool)
 ```
+
 ### - 识别照片内容api(默认用于识别照片二维码)
+
 ``` swift
-    /**
-     Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
-     
-     - parameter image:               A valid picture.
-     - parameter ofType:              The type is used to specify the detection intent. (Default: CIDetectorTypeQRCode)
-     - parameter context:             The context argument specifies the CIContext to be used to operate on the image. May be nil. (Default: nil)
-     - parameter options:             The options parameter lets you optinally specify a accuracy / performance tradeoff. Can be nil or an empty dictionary. (Default: [[CIDetectorAccuracy: CIDetectorAccuracyHigh]]).
-     
-     - returns: Returns an array of CIFeature instances in the given image.
-     */
-    public func detector(image: UIImage, ofType: String = CIDetectorTypeQRCode, context: CIContext? = nil, options: [String : Any]? = [CIDetectorAccuracy: CIDetectorAccuracyHigh]) -> Array<CIFeature>?
+/**
+ Identify the content information in the picture (for details, please refer to the relevant API of the system cidetector, where the QR code content is identified by default)
+
+ - parameter image:               A valid picture.
+ - parameter ofType:              The type is used to specify the detection intent. (Default: CIDetectorTypeQRCode)
+ - parameter context:             The context argument specifies the CIContext to be used to operate on the image. May be nil. (Default: nil)
+ - parameter options:             The options parameter lets you optinally specify a accuracy / performance tradeoff. Can be nil or an empty dictionary. (Default: [[CIDetectorAccuracy: CIDetectorAccuracyHigh]]).
+
+ - returns: Returns an array of CIFeature instances in the given image.
+ */
+public func detector(image: UIImage, ofType: String = CIDetectorTypeQRCode, context: CIContext? = nil, options: [String : Any]? = [CIDetectorAccuracy: CIDetectorAccuracyHigh]) -> Array<CIFeature>?
 ```
 
